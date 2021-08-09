@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="create()" ngNativeValidate>
+    <div>
+        <label>ID: <input type="number" formControlName="id" ></label>
+    </div>
+    <div>
+        <label>Ime i prezime: <input type="text" formControlName="ime" ></label>
+    </div>
+    <div>
+        <label>JMBG: <input type="number" formControlName="jmbg" ></label>
+    </div>
+    <div>
+        <input type="submit" value="Potvrdi">
+    </div>
+</form>

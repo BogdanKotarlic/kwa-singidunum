@@ -1,0 +1,37 @@
+<h3>Dodavanje</h3>
+<app-pohadjanje-predmeta-form [studenti]="studenti" (createEvent)="create($event)"></app-pohadjanje-predmeta-form>
+
+<h3>Izmena</h3>
+<app-pohadjanje-predmeta-form [studenti]="studenti" [pohadjanjePredmeta]="pohadjanjePredmetaUpdate"  (createEvent)="update($event)"></app-pohadjanje-predmeta-form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Konacna ocena </th>
+            <th>Ime i prezime studenta</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of pohadjanjePredmeta">
+            <td>{{p.id}}</td>
+            <td>{{p.konacnaOcena}}</td>
+            <td *ngIf="p.student != null">{{p.student.ime}}</td>
+            <td><button (click)="delete(p.id)">Ukloni</button>
+                <button (click)="setUpdate(p)">Izmeni</button>
+                <button (click)="prikaziDetalje(p)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/pohadjanjepredmeta/{{p.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!--
+    <td>
+    <p *ngFor="let studijskiProgram of fakultet.studijskiProgram">
+{{studijskiProgram.naziv}}</p>
+</td>
+-->

@@ -1,0 +1,29 @@
+<h3>Dodavanje</h3>
+<app-studijski-program-form [fakulteti]="fakulteti" (createEvent)="create($event)"></app-studijski-program-form>
+
+<h3>Izmena</h3>
+<app-studijski-program-form [studijskiProgram]="studijskiProgramUpdate" [fakulteti]="fakulteti" (createEvent)="update($event)"></app-studijski-program-form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naziv</th>
+            <th>Fakultet</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let program of studijskiProgram">
+            <td>{{program.id}}</td>
+            <td>{{program.naziv}}</td>
+            <td *ngIf="program.fakultet != null">{{program.fakultet["naziv"]}}</td>
+            <td><button (click)="delete(program.id)">Ukloni</button>
+                <button (click)="setUpdate(program)">Izmeni</button>
+                <button (click)="prikaziDetalje(program)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/studijski_program/{{program.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+        
+    </tbody>
+</table>

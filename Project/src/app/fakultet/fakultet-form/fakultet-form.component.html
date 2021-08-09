@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="create()" ngNativeValidate>
+    <div>
+        <label>ID: <input type="number" formControlName="id" ></label>
+    </div>
+    <div>
+        <label>Naziv: <input type="text" formControlName="naziv" ></label>
+    </div>
+    <div>
+        <label >Univerzitet:
+            <select formControlName="univerzitet" >
+                <option *ngFor="let u of univerziteti" [ngValue]="u">{{u.naziv}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Potvrdi">
+    </div>
+</form>
+
+

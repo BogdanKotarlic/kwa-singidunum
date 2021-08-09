@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="create()" ngNativeValidate>
+    <div>
+        <label>ID: <input type="number" formControlName="id" ></label>
+    </div>
+    <div>
+        <label>Naziv: <input type="text" formControlName="naziv" ></label>
+    </div>
+    <div>
+        <label>Drzava: <input type="text" formControlName="drzava"></label>
+    </div>
+    <div>
+        <label >Adresa:
+            <select formControlName="adresa" >
+                <option *ngFor="let a of adrese" [ngValue]="a">{{a.ulica}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Potvrdi">
+    </div>
+</form>

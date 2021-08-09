@@ -1,0 +1,34 @@
+<h3>Dodavanje</h3>
+<app-naucna-oblast-form [zvanje]="zvanje" (createEvent)="create($event)"></app-naucna-oblast-form>
+
+<h3>Izmena</h3>
+<app-naucna-oblast-form [naucnaOblast]="naucnaOblastUpdate" [zvanje]="zvanje" (createEvent)="update($event)"></app-naucna-oblast-form>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naziv naucne oblasti</th>
+            <th>ID zvanja</th>
+            <th>Akcije</th>
+        </tr>
+        <!-- Mozda bih mogao da uzmem id zvanja
+        i da pretrazim novi array zvanja i ispisem ime zvanja
+        -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let z of naucnaOblast">
+            <td>{{z.id}}</td>
+            <td>{{z.naziv}}</td>
+            <td *ngIf="z.zvanje != null">{{z.zvanje["id"]}}</td>
+            <td><button (click)="delete(z.id)">Ukloni</button>
+                <button (click)="setUpdate(z)">Izmeni</button>
+                <button (click)="prikaziDetalje(z)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/zvanja/{{z.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+        
+    </tbody>
+</table>

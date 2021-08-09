@@ -1,0 +1,93 @@
+{
+  "univerzitet": [
+    {
+      "id": 2,
+      "datumOsnivanja": "2021-04-09",
+      "naziv": "Univerzitet Singidunum"
+    },
+    {
+      "datumOsnivanja": "2021-04-09",
+      "naziv": "Univerzitet Oxford",
+      "id": 1
+    },
+    {
+      "id": 3,
+      "datumOsnivanja": "2021-04-14",
+      "naziv": "ASDADS"
+    }
+  ],
+  "fakultet": [
+    {
+      "id": 1,
+      "naziv": "Fakultet za informatiku",
+      "univerzitet": {
+        "datumOsnivanja": "2021-04-09",
+        "naziv": "Univerzitet Oxford",
+        "id": 1
+      }
+    },
+    {
+      "id": 2,
+      "naziv": "Fakultet za sport",
+      "univerzitet": {
+        "datumOsnivanja": "2021-04-09",
+        "naziv": "Univerzitet Oxford",
+        "id": 1
+      }
+    },
+    {
+      "id": 3,
+      "naziv": "Neki fakultet",
+      "univerzitet": {
+        "id": 2,
+        "datumOsnivanja": "2021-04-09",
+        "naziv": "Univerzitet Singidunum"
+      }
+    }
+  ],
+  "student": [
+    {
+      "id": 1,
+      "ime": "Petar Petrovic",
+      "jmbg": 12838912398890
+    },
+    {
+      "id": 2,
+      "ime": "Stefan Stojkovic",
+      "jmbg": 12312123123123
+    },
+    {
+      "id": 3,
+      "ime": "Stefan petrojevic",
+      "jmbg": 13232223232432
+    }
+  ],
+  "studijski_program": [
+    {
+      "id": 1,
+      "naziv": "SII",
+      "fakultet": {
+        "id": 2,
+        "naziv": "Fakultet za sport",
+        "univerzitet": {
+          "datumOsnivanja": "2021-04-09",
+          "naziv": "Univerzitet Oxford",
+          "id": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "naziv": "ASD",
+      "fakultet": {
+        "id": 1,
+        "naziv": "Fakultet za informatiku",
+        "univerzitet": {
+          "id": 2,
+          "datumOsnivanja": "2021-04-09",
+          "naziv": "Univerzitet Singidunum"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<h3>Dodavanje</h3>
+<app-adresa-form [univerzitet]="univerzitet" [fakultet]="fakultet"
+[student]="student" [nastavnik]="nastavnik" (createEvent)="create($event)"></app-adresa-form>
+
+<h3>Izmena</h3>
+<app-adresa-form [univerzitet]="univerzitet"  [fakultet]="fakultet" 
+[student]="student" [nastavnik]="nastavnik" 
+[adrese]="adresaUpdate"  (createEvent)="update($event)"></app-adresa-form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ulica</th>
+            <th>Broj</th>
+            <th>Fakultet</th>
+            <th>Univerzitet</th>
+            <th>Student</th>
+            <th>Nastavnik</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of adrese">
+            <td>{{a.id}}</td>
+            <td>{{a.ulica}}</td>
+            <td>{{a.broj}}</td>
+            <td *ngIf="a.fakultet != null">{{a.fakultet.naziv}}</td>
+            <td *ngIf="a.univerzitet != null">{{a.univerzitet.naziv}}</td>
+            <td *ngIf="a.student != null">{{a.student.ime}}</td>
+            <td *ngIf="a.nastavnik != null">{{a.nastavnik.ime}}</td>
+            <td><button (click)="delete(a.id)">Ukloni</button>
+                <button (click)="setUpdate(a)">Izmeni</button>
+                <button (click)="prikaziDetalje(a)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/adrese/{{a.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+    </tbody>
+</table>

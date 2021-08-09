@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="create()" ngNativeValidate>
+    <div>
+        <label>ID: <input type="number" formControlName="id" ></label>
+    </div>
+    <div>
+        <label>Broj predavanja: <input type="number" formControlName="brojPredavanja" ></label>
+    </div>
+    <div>
+        <label>brojVezbi: <input type="number" formControlName="brojVezbi" ></label>
+    </div>
+    <div>
+        <label>Drugi oblici nastave: <input type="number" formControlName="drugiObliciNastave" ></label>
+    </div>
+    <div>
+        <label>Espb: <input type="number" formControlName="espb" ></label>
+    </div>
+    <div>
+        <label>Istrazivacki radovi: <input type="number" formControlName="istrazivackiRad" ></label>
+    </div>
+    <div>
+        <label>Naziv: <input type="text" formControlName="naziv" ></label>
+    </div>
+    <div>
+        <label>Obavezan: <input type="boolean" formControlName="obavezan" ></label>
+    </div>
+    <div>
+        <label>Ostali casovi: <input type="number" formControlName="ostaliCasovi" ></label>
+    </div>
+    <div>
+        <label >Godina studija:
+            <select formControlName="godinaStudija" >
+                <option *ngFor="let g of godinaStudija" [ngValue]="g">{{g.godina}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>Konacna ocena:
+            <select formControlName="pohadjanjePredmeta" >
+                <option *ngFor="let o of pohadjanjePredmeta" [ngValue]="o">{{o.konacnaOcena}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Potvrdi">
+    </div>
+</form>
+
+

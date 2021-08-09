@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="create()" ngNativeValidate>
+    <div>
+        <label>Datum osnivanja: <input type="date" formControlName="datumOsnivanja" ></label>
+    </div>
+    <div>
+        <label>Naziv: <input type="text" formControlName="naziv" ></label>
+    </div>
+    
+    <div>
+        <input type="submit" value="Potvrdi">
+    </div>
+</form>

@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="create()" ngNativeValidate>
+    <div>
+        <label>ID: <input type="number" formControlName="id" ></label>
+    </div>
+    <div>
+        <label>Godina: <input type="date" formControlName="godina" ></label>
+    </div>
+    <div>
+        <label >Naziv studijskog programa:
+            <select formControlName="studijskiProgram" >
+                <option *ngFor="let u of studijskiProgram" [ngValue]="u">{{u.naziv}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label >Datum upisa:
+            <select formControlName="studentNaGodini" >
+                <option *ngFor="let u of studentNaGodini" [ngValue]="u">{{u.datumUpisa}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Potvrdi">
+    </div>
+</form>
+
+

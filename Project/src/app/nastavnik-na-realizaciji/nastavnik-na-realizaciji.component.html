@@ -1,0 +1,38 @@
+<h3>Dodavanje</h3>
+<app-nastavnik-na-realizaciji-form [nastavnici]="nastavnici" (createEvent)="create($event)"></app-nastavnik-na-realizaciji-form>
+
+<h3>Izmena</h3>
+<app-nastavnik-na-realizaciji-form [nastavnici]="nastavnici" [nastavniciNaRealizaciji]="nastavniciNaRealizacijiUpdate"  (createEvent)="update($event)"></app-nastavnik-na-realizaciji-form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Broj casova</th>
+            <th>Ime nastavnika</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let n of nastavniciNaRealizaciji">
+            <td>{{n.id}}</td>
+            <td>{{n.brojCasova}}</td>
+            <td *ngIf="n.nastavnik != null">
+                {{n.nastavnik.ime}}</td>
+            <td><button (click)="delete(n.id)">Ukloni</button>
+                <button (click)="setUpdate(n)">Izmeni</button>
+                <button (click)="prikaziDetalje(n)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/nastavnicinarealizaciji/{{n.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!--
+    <td>
+    <p *ngFor="let studijskiProgram of fakultet.studijskiProgram">
+{{studijskiProgram.naziv}}</p>
+</td>
+-->

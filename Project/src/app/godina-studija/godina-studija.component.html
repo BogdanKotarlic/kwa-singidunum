@@ -1,0 +1,40 @@
+<h3>Dodavanje</h3>
+<app-godina-studija-form [studentNaGodini]="studentNaGodini" [studijskiProgram]="studijskiProgram" (createEvent)="create($event)"></app-godina-studija-form>
+
+<h3>Izmena</h3>
+<app-godina-studija-form [studentNaGodini]="studentNaGodini" [studijskiProgram]="studijskiProgram" [godinaStudija]="godinaStudijaUpdate"  (createEvent)="update($event)"></app-godina-studija-form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Godina</th>
+            <th>Naziv studijskog programa</th>
+            <th>Datum upisa studenta</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of godinaStudija">
+            <td>{{f.id}}</td>
+            <td>{{f.godina}}</td>
+            <td *ngIf="f.studijskiProgram != null">{{f.studijskiProgram.naziv}}</td>
+            <td *ngIf="f.studentNaGodini != null">{{f.studentNaGodini.datumUpisa}}</td>
+            <td><button (click)="delete(f.id)">Ukloni</button>
+                <button (click)="setUpdate(f)">Izmeni</button>
+                <button (click)="prikaziDetalje(f)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/godinestudija/{{f.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!--
+    <td>
+    <p *ngFor="let studijskiProgram of fakultet.studijskiProgram">
+{{studijskiProgram.naziv}}</p>
+</td>
+-->

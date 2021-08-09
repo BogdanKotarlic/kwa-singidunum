@@ -1,0 +1,28 @@
+<h3>Dodavanje</h3>
+<app-student-form (createEvent)="create($event)"></app-student-form>
+<h3>Izmena</h3>
+<app-student-form  [student]="studentUpdate" (createEvent)="update($event)"></app-student-form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ime i prezime</th>
+            <th>JMBG</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of studenti">
+            <td>{{student.id}}</td>
+            <td>{{student.ime}}</td>
+            <td>{{student.jmbg}}</td>
+            <td><button (click)="delete(student.id)">Ukloni</button>
+                <button (click)="setUpdate(student)">Izmeni</button>
+                <button (click)="prikaziDetalje(student)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/studenti/{{student.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+    </tbody>
+</table>

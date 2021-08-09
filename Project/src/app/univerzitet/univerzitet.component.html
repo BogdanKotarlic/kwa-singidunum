@@ -1,0 +1,29 @@
+<h3>Dodavanje</h3>
+<app-univerzitet-form [adrese]="adrese" (createEvent)="create($event)"></app-univerzitet-form>
+
+<h3>Izmena</h3>
+<app-univerzitet-form [adrese]="adrese" [univerzitet]="univerzitetUpdate" (createEvent)="update($event)"></app-univerzitet-form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Datum osnivanja</th>
+            <th>Naziv</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let univerzitet of univerziteti">
+            <td>{{univerzitet.id}}</td>
+            <td>{{univerzitet.datumOsnivanja}}</td>
+            <td>{{univerzitet.naziv}}</td>
+            <td><button (click)="delete(univerzitet.id)">Ukloni</button>
+                <button (click)="setUpdate(univerzitet)">Izmeni</button>
+                <button (click)="prikaziDetalje(univerzitet)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/univerziteti/{{univerzitet.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="create()" ngNativeValidate>
+    <div>
+        <label>ID: <input type="number" formControlName="id" ></label>
+    </div>
+    <div>
+        <label>Datum upisa: <input type="date" formControlName="datumUpisa" ></label>
+    </div>
+    <div>
+        <label>Broj indeksa: <input type="number" formControlName="brojIndeksa" ></label>
+    </div>
+    <div>
+        <label >Student:
+            <select formControlName="student" >
+                <option *ngFor="let s of student" [ngValue]="s">{{s.ime}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Potvrdi">
+    </div>
+</form>
+
+

@@ -1,0 +1,32 @@
+<h3>Dodavanje</h3>
+<app-mesto-forma [adrese]="adrese" (createEvent)="create($event)"></app-mesto-forma>
+<h3>Izmena</h3>
+<app-mesto-forma [adrese]="adrese" [mesto]="mestoUpdate" (createEvent)="update($event)"></app-mesto-forma>
+
+<h3> I mesto verovatno treba da se ispravi
+    Kada se dodaje mesto da se dodaje drzava a ne adresa/ proveriti
+</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naziv</th>
+            <th>Drzava</th>
+            <th>Adresa</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mesto of mesta">
+            <td>{{mesto.id}}</td>
+            <td>{{mesto.naziv}}</td>
+            <td>{{mesto.drzava}}</td>
+            <td>{{mesto.adresa["ulica"]}}</td>
+            <td><button (click)="delete(mesto.id)">Ukloni</button>
+                <button (click)="setUpdate(mesto)">Izmeni</button>
+                <button (click)="prikaziDetalje(mesto)">Detalji</button> <!-- I NACIN -->
+                <a routerLink="/mesta/{{mesto.id}}">Detalji</a>  <!-- II NACIN -->
+            </td>
+        </tr>
+    </tbody>
+</table>
